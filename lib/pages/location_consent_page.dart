@@ -23,14 +23,12 @@ class _LocationConsentPageState extends State<LocationConsentPage> {
             child: Column(
               children: [
                 const SizedBox(height: 40),
-                const Text('Made with ❤️ in India'),
-                const SizedBox(height: 15),
                 Text(
-                  'Vernet',
+                  'NetPanel',
                   style: Theme.of(context).textTheme.displayLarge,
                   textAlign: TextAlign.center,
                 ),
-                const Icon(Icons.radar, size: 100),
+                const Icon(Icons.wifi, size: 100),
                 const SizedBox(height: 10),
                 const Padding(
                   padding: EdgeInsets.only(left: 50, right: 50),

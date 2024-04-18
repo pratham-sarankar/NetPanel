@@ -13,7 +13,7 @@
         <package android:name="org.fdroid.fdroid" /> 
     </queries>
    <application
-        android:label="Vernet"
+        android:label="NetPanel"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

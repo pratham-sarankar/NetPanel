@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:vernet/api/update_checker.dart';
-import 'package:vernet/helper/utils_helper.dart';
 import 'package:vernet/main.dart';
 import 'package:vernet/models/dark_theme_provider.dart';
 import 'package:vernet/ui/adaptive/adaptive_list.dart';
@@ -157,60 +154,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 );
                 await appSettings.load();
                 setState(() {});
-              },
-            ),
-          ),
-          Card(
-            child: AdaptiveListTile(
-              title: const Text('Check for Updates'),
-              trailing: IconButton(
-                icon: const Icon(Icons.refresh),
-                onPressed: () {
-                  checkForUpdates(context, showIfNoUpdate: true);
-                },
-              ),
-            ),
-          ),
-          Card(
-            child: AdaptiveListTile(
-              title: const Text('About'),
-              onTap: () async {
-                final info = await PackageInfo.fromPlatform();
-                showAboutDialog(
-                  context: context,
-                  applicationName: 'Vernet',
-                  applicationVersion: '${info.version}+${info.buildNumber}',
-                  applicationIcon: const Icon(Icons.radar),
-                  children: [
-                    AdaptiveListTile(
-                      leading: const Icon(Icons.bug_report),
-                      title: const Text('Report Issues'),
-                      onTap: () {
-                        launchURLWithWarning(context, _issueUrl);
-                      },
-                    ),
-                    AdaptiveListTile(
-                      leading: const Icon(Icons.favorite),
-                      title: const Text('Donate'),
-                      onTap: () {
-                        launchURLWithWarning(context, _donateUrl);
-                      },
-                    ),
-                    AdaptiveListTile(
-                      leading: const Icon(Icons.code),
-                      title: const Text('Source Code'),
-                      onTap: () {
-                        launchURLWithWarning(context, _srcUrl);
-                      },
-                    ),
-                    const AdaptiveListTile(
-                      title: Text(
-                        'Made with ❤️ in India',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                );
               },
             ),
           ),
